@@ -2,6 +2,7 @@
 /config/app.php
 /tmp/*
 /logs/*
+.github
 .idea/workspace.xml
 **/.idea
 .htaccess
