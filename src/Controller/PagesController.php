@@ -36,7 +36,7 @@ class PagesController extends AppController
     public function index(){
         $this->viewBuilder()->layout(false);
         //Uncomment for development
-        return $this -> render('/Pages/home');
+        //return $this -> render('/Pages/home');
     }
     /**
      * Displays a view
