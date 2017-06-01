@@ -1,0 +1,58 @@
+<div class="container">
+<div class="row">
+    <div class="col-md-offset-2 col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading text-center">
+               Add Note
+            </div>
+            <div class="panel-body">
+                <form name="noteForm" class="form-horizontal" role="form" ng-submit="main.submitNoteForm(noteForm.$valid)" novalidate>
+                    <div class="form-group">
+                        <label for="title" class="col-sm-1 control-label">Title</label>
+                        <div class="col-sm-8">
+                            <input type="text" data-ng-model="main.note.title" name="title" class="form-control" id="title" placeholder="Title" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-sm-1 control-label">Note</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" data-ng-model="main.note.body"  name="body" style="resize: none;" rows="5" placeholder="Enter your note?" required></textarea>
+                            <input type="hidden" ng-model="main.note.id" value="{{main.note.id}}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            <button type="submit" class="btn btn-info pull-right" ng-disabled="noteForm.$invalid">{{main.note.id? 'Update' : 'Save' }}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-offset-2 col-md-8">
+        <div class="panel">
+            <div class="panel-body">
+                <div id="notes" class="row list-group">
+                    <div class="item list-group-item"  ng-repeat="(noteIndex,noteDetail) in main.NoteLists" >
+
+                        <div class="caption">
+                            <h4 class="group inner list-group-item-heading">{{noteDetail.title}}</h4>
+                            <p class="group inner list-group-item-text">{{noteDetail.body}}</p>
+                            <div class="row">
+                                <div class="col-md-offset-9">
+                                    <a class="btn btn-primary" ng-click="main.editNote(noteDetail.id)">Edit</a>
+                                    <a class="btn btn-danger" ng-click="main.deleteNote(noteDetail.id)" >Delete</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
